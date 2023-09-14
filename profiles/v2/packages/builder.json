@@ -1,0 +1,62 @@
+{
+  "log": {
+    "level": 4
+  },
+  "common": {
+    "md5Cache": false,
+    "outputName": "web-desktop",
+    "mainBundleCompressionType": "merge_dep",
+    "platform": "web-desktop"
+  },
+  "BuildTaskManager": {
+    "taskMap": {
+      "1694696630537": {
+        "id": "1694696630537",
+        "progress": 1,
+        "state": "success",
+        "message": "14-09-2023 18:34 Build success in 20226 ms!",
+        "options": {
+          "name": "DotGame",
+          "platform": "web-desktop",
+          "buildPath": "project://build",
+          "debug": false,
+          "md5Cache": false,
+          "sourceMaps": false,
+          "replaceSplashScreen": false,
+          "mainBundleCompressionType": "merge_dep",
+          "mainBundleIsRemote": false,
+          "mergeStartScene": false,
+          "experimentalEraseModules": false,
+          "compressTexture": true,
+          "packAutoAtlas": true,
+          "startScene": "94eefe45-dbb2-4b6e-ae0f-f5c548f130be",
+          "scenes": [
+            {
+              "url": "db://assets/scene/game.scene",
+              "uuid": "94eefe45-dbb2-4b6e-ae0f-f5c548f130be",
+              "inBundle": false
+            }
+          ],
+          "outputName": "web-desktop",
+          "packages": {
+            "web-desktop": {
+              "resolution": {
+                "designWidth": 1024,
+                "designHeight": 768
+              },
+              "polyfills": {
+                "asyncFunctions": true
+              }
+            },
+            "cocos-service": {
+              "configID": "8bb631",
+              "services": []
+            }
+          }
+        },
+        "time": "14-09-2023 18:33",
+        "dirty": false
+      }
+    }
+  }
+}

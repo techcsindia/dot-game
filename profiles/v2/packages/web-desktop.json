@@ -1,0 +1,10 @@
+{
+  "options": {
+    "web-desktop": {
+      "resolution": {
+        "designHeight": 768,
+        "designWidth": 1024
+      }
+    }
+  }
+}
