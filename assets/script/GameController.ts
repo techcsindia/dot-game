@@ -171,6 +171,10 @@ export class GameController extends Component {
         else if (r1 + 2 == r2 && c1 - 1 == c2) {
             move_type = MOVE_TYPE.Cross
         }
+        else {
+            console.log("Move Not allowed : Wrong Path Combination : Start : ", start, " End :", end);
+            return false;
+        }
 
 
         switch (move_type) {
@@ -179,22 +183,36 @@ export class GameController extends Component {
                 if (r1 == r2) {
                     let distance = Math.abs(c1 - c2);
                     if (distance == 2) {
-                        // log("2 Block Movement Col")
-                        let path_diagonal_1 = this.getIndex(r1, c1) + "-" + this.getIndex(r1, c1 + 1);
-                        let path_diagonal_2 = this.getIndex(r1, c1 + 1) + "-" + this.getIndex(r1, c1 + 2);
-                        combination_path_arr.push(path_diagonal_1)
-                        combination_path_arr.push(path_diagonal_2)
+                        //  log("2 Block Movement Col")
+                        if (this.visited_index.indexOf(this.getIndex(r1, c1 + 1)) == -1) {
+                            let path_diagonal_1 = this.getIndex(r1, c1) + "-" + this.getIndex(r1, c1 + 1);
+                            let path_diagonal_2 = this.getIndex(r1, c1 + 1) + "-" + this.getIndex(r1, c1 + 2);
+                            combination_path_arr.push(path_diagonal_1)
+                            combination_path_arr.push(path_diagonal_2)
+                        }
+                        else {
+                            console.log("R2 Intermediated node is visited : Movement not allowd");
+                            return false
+                        }
                     }
                 }
                 else if (c1 == c2) {
                     let distance = Math.abs(r1 - r2);
                     if (distance == 2) {
-                        // log("2 Block Movement Row")
-                        let path_diagonal_1 = this.getIndex(r1, c1) + "-" + this.getIndex(r1 + 1, c1);
-                        let path_diagonal_2 = this.getIndex(r1 + 1, c1) + "-" + this.getIndex(r1 + 2, c1);
-                        combination_path_arr.push(path_diagonal_1)
-                        combination_path_arr.push(path_diagonal_2)
+                        //  log("2 Block Movement Row")
+                        if (this.visited_index.indexOf(this.getIndex(r1 + 1, c1)) == -1) {
+                            let path_diagonal_1 = this.getIndex(r1, c1) + "-" + this.getIndex(r1 + 1, c1);
+                            let path_diagonal_2 = this.getIndex(r1 + 1, c1) + "-" + this.getIndex(r1 + 2, c1);
+                            combination_path_arr.push(path_diagonal_1)
+                            combination_path_arr.push(path_diagonal_2)
+                        }
+                        else {
+                            console.log("C2 Intermediated node is visited : Movement not allowd");
+                            return false;
+                        }
                     }
+                   
+
                 }
                 break;
             case MOVE_TYPE.Diagonal:
@@ -244,7 +262,6 @@ export class GameController extends Component {
         let flag = 1;
 
         combination_path_arr.forEach(element => {
-
             if (this.block_pairs.indexOf(element) >= 0) {
                 flag = 0
                 return false;
